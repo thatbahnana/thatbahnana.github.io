@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <title>bahnana.dev</title>
+    <meta
+      name="description"
+      content="Minimalist portfolio of Bahn, a Front-end and Back-end developer passionate about video games. Explore skills in HTML, JavaScript, Python, and creative projects."
+    />
+    <meta
+      name="keywords"
+      content="Bahn, Developer, Front-end, Back-end, Portfolio, JavaScript, Python, Video Games, Coding"
+    />
+    <meta name="author" content="bahn, bahnana, thatbahnana" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffcc00" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="bahnana.dev – Front-end & Back-end Developer"
+    />
+    <meta
+      property="og:description"
+      content="Minimalist portfolio of Bahn, passionate about video games and coding in HTML, JavaScript, and Python."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        /* Backgrounds */
+        --color-background: #fff9e6; /* a very light yellow */
+        --color-background-dark: #0a0a0a; /* a dark yellow / brown */
+
+        /* Surfaces */
+        --color-surface: rgba(255, 255, 204, 0.4); /* pale transparent yellow */
+        --color-surface-dark: rgba(58, 46, 0, 0.6); /* dark transparent */
+
+        /* Surface borders */
+        --color-surface-border: #3a2e0025; /* dark transparent border */
+        --color-surface-dark-border: rgba(
+          255,
+          255,
+          204,
+          0.1
+        ); /* light transparent */
+
+        /* Shadows */
+        --color-surface-shadow: rgba(
+          204,
+          204,
+          0,
+          0.15
+        ); /* light yellow shadow */
+        --color-surface-dark-shadow: rgba(58, 46, 0, 0.6); /* dark shadow */
+
+        /* Texts / Foreground */
+        --color-foreground: #3a2e00; /* dark text */
+        --color-foreground-dark: #fff9e6; /* light text */
+
+        /* Primary */
+        --color-primary: #ffcc00; /* bright yellow */
+        --color-primary-dark: #ffee66; /* pale yellow */
+
+        /* Secondary */
+        --color-secondary: #d4af37; /* gold / dark yellow */
+        --color-secondary-dark: #e6ca70; /* lighter yellow */
+
+        /* Fonts */
+        --text-tiny: 0.9;
+
+        /* Keyframes */
+        @keyframes fade-in-slide {
+          from {
+            transform: translateY(-2.5rem);
+            opacity: 0%;
+          }
+          to {
+            opacity: 100%;
+          }
+        }
+
+        /* Animations */
+        --animate-fade-in-slide: fade-in-slide 1s ease-out 0s;
+      }
+
+      @layer base {
+        a {
+          @apply underline underline-offset-8;
+        }
+
+        a:hover {
+          @apply font-bold;
+        }
+
+        body::after {
+          @apply pointer-events-none fixed bottom-0 left-0 z-9999 h-64 w-full bg-gradient-to-b from-transparent to-background content-[''] dark:to-background-dark animate-fade-in-slide;
+        }
+
+        h1,
+        h2,
+        h3 {
+          @apply font-semibold;
+        }
+
+        h1 {
+          @apply text-3xl;
+        }
+
+        h2 {
+          @apply text-2xl;
+        }
+
+        h3 {
+          @apply text-xl;
+        }
+
+        h4,
+        h5,
+        h6 {
+          @apply font-normal;
+        }
+
+        h4 {
+          @apply text-lg;
+        }
+
+        h5 {
+          @apply text-base;
+        }
+
+        h6 {
+          @apply text-tiny;
+        }
+      }
+
+      @layer components {
+        .cta {
+          @apply rounded-2xl p-2 text-center no-underline;
+        }
+
+        .cta:hover {
+          @apply font-normal;
+        }
+
+        .cta-primary {
+          @apply border-2 border-surface-border dark:border-surface-dark-border transition duration-150 ease-in-out;
+        }
+
+        .cta-primary:hover {
+          @apply backdrop-invert-2;
+        }
+
+        section {
+          @apply relative flex flex-col gap-2 rounded-4xl border-2 border-surface-border p-6 dark:border-surface-dark-border;
+        }
+
+        section .standard-header {
+          @apply static bg-transparent;
+        }
+
+        section .with-divider {
+          @apply border-b-2 border-surface-border pb-4 dark:border-surface-dark-border;
+        }
+
+        section > header {
+          @apply absolute -top-4 left-4 z-1 mb-2 bg-background px-4 text-xl dark:bg-background-dark;
+        }
+
+        section > .content {
+          @apply px-2 leading-9;
+        }
+
+        .card {
+          @apply relative flex flex-col gap-2 rounded-2xl border-2 border-surface-border px-8 py-6 dark:border-surface-dark-border;
+        }
+
+        .card > header {
+          @apply bg-background dark:bg-background-dark;
+        }
+
+        .card > .content {
+          @apply pt-2;
+        }
+
+        .card .with-divider {
+          @apply border-b-2 border-surface-border pb-3 dark:border-surface-dark-border;
+        }
+
+        .card .with-border-header {
+          @apply absolute -top-4 left-4 z-1 bg-background px-4 dark:bg-background-dark;
+        }
+
+        .progress-bar {
+          @apply h-2 rounded-full bg-secondary/10 dark:bg-secondary-dark/10;
+        }
+
+        .progress-bar .bar {
+          @apply h-full rounded-full bg-primary dark:bg-primary-dark;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background font-['Geist_Mono'] text-foreground sm:text-base dark:bg-background-dark dark:text-foreground-dark"
+  >
+    <div
+      class="relative grid min-h-screen animate-fade-in-slide items-start justify-items-center py-48"
+    >
+      <div class="flex max-w-256 flex-col gap-12 p-8">
+        <div>
+          <h1>I'm Bahn...</h1>
+          <h6>
+            &gt; ‎ ‎ I’m a
+            <span class="text-secondary italic dark:text-secondary-dark">
+              [‘Front’, ’Back’, ’Game’]</span
+            >
+            Developer...
+          </h6>
+        </div>
+
+        <section>
+          <header>
+            <h4>About</h4>
+          </header>
+          <div class="content">
+            I’m a young developer who’s really into coding — but honestly, I
+            mostly love making random, silly stuff just for the fun of it. I
+            don’t always care if it’s useful or not, it’s more about
+            experimenting, trying things out, and just enjoying the process! ^^
+          </div>
+        </section>
+
+        <section>
+          <header class="standard-header with-divider">
+            <h4>Skills</h4>
+          </header>
+          <div class="flex flex-col gap-19 pt-6">
+            <div class="grid gap-5 md:grid-cols-2">
+              <div class="card">
+                <header class="with-border-header">
+                  <h6>Languages</h6>
+                </header>
+                <p>HTML/CSS</p>
+                <div class="progress-bar">
+                  <div class="bar w-[50%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>JavaScript</p>
+                <div class="progress-bar">
+                  <div class="bar w-[15%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>TypeScript</p>
+                <div class="progress-bar">
+                  <div class="bar w-[5%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>Node.JS</p>
+                <div class="progress-bar">
+                  <div class="bar w-[15%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>Python</p>
+                <div class="progress-bar">
+                  <div class="bar w-[50%]"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div class="card">
+                <header class="with-border-header">
+                  <h6>Frameworks</h6>
+                </header>
+                <p>Alpine.JS</p>
+                <div class="progress-bar">
+                  <div class="bar w-[15%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>TailwindCSS</p>
+                <div class="progress-bar">
+                  <div class="bar w-[50%]"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div class="card">
+                <header class="with-border-header">
+                  <h6>Softwares</h6>
+                </header>
+                <p>UPBGE</p>
+                <div class="progress-bar">
+                  <div class="bar w-[5%]"></div>
+                </div>
+              </div>
+
+              <div class="card">
+                <p>Jupyter</p>
+                <div class="progress-bar">
+                  <div class="bar w-[50%]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <header>
+            <h4>Projects</h4>
+          </header>
+          <div class="content">Coming soon...</div>
+        </section>
+
+        <section>
+          <header>
+            <h4>Blog</h4>
+          </header>
+          <div class="content">Coming soon...</div>
+        </section>
+
+        <section>
+          <header>
+            <h4>Contact</h4>
+          </header>
+          <div class="content">Coming soon...</div>
+        </section>
+      </div>
+
+      <footer class="text-center leading-8">
+        <p>© 2025 Bahn Na Na - <a href="LICENSE">MIT Licensed</a>.</p>
+        <p>No cookies. No trackers. Just code.</p>
+      </footer>
+
+      <!-- Development Banner 
+      
+      <div class="fixed top-0 z-999 w-full bg-red-600 py-2 text-center">
+        This website is under development. It is not intended for public viewing.
+      </div>
+
+      -->
+    </div>
+  </body>
+</html>
