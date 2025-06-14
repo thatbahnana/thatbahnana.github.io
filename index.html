@@ -11,7 +11,7 @@
     <title>bahnana.dev</title>
     <meta
       name="description"
-      content="Minimalist portfolio of Bahn, a Front-end and Back-end developer passionate about video games. Explore skills in HTML, JavaScript, Python, and creative projects."
+      content="Minimalist website of Bahn, a Front-end and Back-end developer passionate about video games. Explore skills in HTML, JavaScript, Python, and creative projects."
     />
     <meta
       name="keywords"
@@ -111,8 +111,12 @@
           @apply font-bold;
         }
 
+        body {
+          @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark font-['Geist_Mono'] sm:text-xs md:text-base;
+        }
+
         body::after {
-          @apply pointer-events-none fixed bottom-0 left-0 z-9999 h-64 w-full bg-gradient-to-b from-transparent to-background content-[''] dark:to-background-dark animate-fade-in-slide;
+          @apply to-background dark:to-background-dark animate-fade-in-slide pointer-events-none fixed bottom-0 left-0 z-9999 h-64 w-full bg-gradient-to-b from-transparent content-[''];
         }
 
         h1,
@@ -219,9 +223,7 @@
       }
     </style>
   </head>
-  <body
-    class="bg-background font-['Geist_Mono'] text-foreground sm:text-base dark:bg-background-dark dark:text-foreground-dark"
-  >
+  <body>
     <div
       class="relative grid min-h-screen animate-fade-in-slide items-start justify-items-center py-48"
     >
@@ -230,10 +232,9 @@
           <h1>I'm Bahn...</h1>
           <h6>
             &gt; ‎ ‎ I’m a
-            <span class="text-secondary italic dark:text-secondary-dark">
-              [‘Front’, ’Back’, ’Game’]</span
-            >
-            Developer...
+            <span class="text-secondary italic dark:text-secondary-dark"
+              >[‘Front’, ’Back’, ’Game’]</span
+            > Developer...
           </h6>
         </div>
 
@@ -371,3 +372,4 @@
     </div>
   </body>
 </html>
+
